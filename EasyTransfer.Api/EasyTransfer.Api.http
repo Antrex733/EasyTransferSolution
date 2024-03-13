@@ -1,0 +1,6 @@
+@EasyTransfer.Api_HostAddress = http://localhost:5208
+
+GET {{EasyTransfer.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
