@@ -1,0 +1,16 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using EasyTransfer.Api.Models;
+global using EasyTransfer.Api;
+global using Microsoft.AspNetCore.Mvc;
+global using EasyTransfer.Api.Dtos;
+global using EasyTransfer.Api.Services.Interfaces;
+global using EasyTransfer.Api.Services;
+global using System.Reflection;
+global using AutoMapper;
+global using Microsoft.AspNetCore.Identity;
+global using FluentValidation;
+global using EasyTransfer.Api.Models.Validators;
+global using FluentValidation.AspNetCore;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;
+global using EasyTransfer.Api.Exceptions;
