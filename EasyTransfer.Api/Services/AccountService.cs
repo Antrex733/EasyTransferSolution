@@ -60,10 +60,17 @@ namespace EasyTransfer.Api.Services
             var token = new JwtSecurityToken(_authentication.JwtIssuer,
                 _authentication.JwtIssuer,
                 claims,
+                expires: expires,
                 signingCredentials: cred);
 
             var tokenHandler = new JwtSecurityTokenHandler();
             return tokenHandler.WriteToken(token);
+        }
+        public UserDto GetUser(int? userId)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            var userDto = _mapper.Map<UserDto>(user);
+            return userDto;
         }
         public bool Save()
         {
