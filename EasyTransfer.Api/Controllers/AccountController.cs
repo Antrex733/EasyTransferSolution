@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
+
 namespace EasyTransfer.Api.Controllers
 {
     [Route("api/account")]
@@ -8,13 +10,16 @@ namespace EasyTransfer.Api.Controllers
         private readonly EasyTransferDBContext _dbContext;
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
+        private readonly IUserContextService _userContextService;
 
         public AccountController(EasyTransferDBContext dbContext, 
-            IAccountService accountService, IMapper mapper)
+            IAccountService accountService, IMapper mapper, 
+            IUserContextService userContextService)
         {
             _dbContext = dbContext;
             _accountService = accountService;
             _mapper = mapper;
+            _userContextService = userContextService;
         }
 
         [HttpPost("register")]
@@ -54,6 +59,23 @@ namespace EasyTransfer.Api.Controllers
             var token = _accountService.GenerateJwt(dto);
 
             return Ok(token);
+        }
+        //[Authorize]
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetUser()
+        {
+            var userId = _userContextService.GetUserId; 
+            var userDto = _accountService.GetUser(userId);
+            if (userDto == null)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+
+            return Ok(userDto);
         }
     }
 }
