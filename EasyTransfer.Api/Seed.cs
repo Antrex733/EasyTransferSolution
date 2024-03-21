@@ -42,14 +42,14 @@
                             Name = "John's savings",
                             AccountNumber = "123456789",
                             Balance = 1000,
-                            Currency = "EUR"
+                            Currency = Currency.PLN
                         },
                         new BankAccount
                         {
                             Name = "John's main",
                             AccountNumber = "987654321",
                             Balance = 500,
-                            Currency = "PLN"
+                            Currency = Currency.PLN
                         }
                     }
                 },

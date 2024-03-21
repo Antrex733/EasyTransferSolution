@@ -1,6 +1,6 @@
 ﻿namespace EasyTransfer.Api.Services.Interfaces
 {
-    public interface IAccountService
+    public interface IUserService
     {
         public bool RegisterUser(RegisterUserDto dto);
         public string GenerateJwt(LoginUserDto dto);

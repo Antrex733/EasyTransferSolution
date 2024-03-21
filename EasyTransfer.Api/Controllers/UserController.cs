@@ -3,17 +3,17 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EasyTransfer.Api.Controllers
 {
-    [Route("api/account")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly EasyTransferDBContext _dbContext;
-        private readonly IAccountService _accountService;
+        private readonly IUserService _accountService;
         private readonly IMapper _mapper;
         private readonly IUserContextService _userContextService;
 
-        public AccountController(EasyTransferDBContext dbContext, 
-            IAccountService accountService, IMapper mapper, 
+        public UserController(EasyTransferDBContext dbContext, 
+            IUserService accountService, IMapper mapper, 
             IUserContextService userContextService)
         {
             _dbContext = dbContext;
@@ -60,7 +60,6 @@ namespace EasyTransfer.Api.Controllers
 
             return Ok(token);
         }
-        //[Authorize]
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

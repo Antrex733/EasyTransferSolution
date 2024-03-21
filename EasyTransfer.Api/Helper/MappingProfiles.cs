@@ -7,6 +7,7 @@
             CreateMap<RegisterUserDto, User>();
             CreateMap<RegisterUserDto, LoginUserDto>();
             CreateMap<User, UserDto>();
+            CreateMap<BankAccountDto, BankAccount>();
         }
     }
 }
