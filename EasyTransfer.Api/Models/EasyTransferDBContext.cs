@@ -18,10 +18,6 @@
             modelBuilder.Entity<BankAccount>()
                 .Property(b => b.Balance)
                 .HasPrecision(10, 2);
-
-            modelBuilder.Entity<BankAccount>()
-                .Property(b => b.Currency)
-                .HasConversion<string>();
         }
         
     }
