@@ -6,6 +6,8 @@
         {
             
         }
+        public DbSet<User> Users { get; set; }
+        public DbSet<BankAccount> BankAccounts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
@@ -16,8 +18,11 @@
             modelBuilder.Entity<BankAccount>()
                 .Property(b => b.Balance)
                 .HasPrecision(10, 2);
+
+            modelBuilder.Entity<BankAccount>()
+                .Property(b => b.Currency)
+                .HasConversion<string>();
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<BankAccount> BankAccounts { get; set; }
+        
     }
 }

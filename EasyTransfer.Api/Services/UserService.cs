@@ -5,14 +5,14 @@ using System.Security.Claims;
 
 namespace EasyTransfer.Api.Services
 {
-    public class AccountService: IAccountService
+    public class UserService: IUserService
     {
         private readonly EasyTransferDBContext _context;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<User> _hasher;
         private readonly AuthenticationSettings _authentication;
 
-        public AccountService(EasyTransferDBContext context, IMapper mapper,
+        public UserService(EasyTransferDBContext context, IMapper mapper,
             IPasswordHasher<User> hasher, AuthenticationSettings authentication)
         {
             _context = context;

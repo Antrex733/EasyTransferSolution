@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string AccountNumber { get; set; }
         public decimal Balance { get; set; } = 0;
-        public string Currency { get; set; }
+        public Currency Currency { get; set; } = Currency.PLN;
 
 
         public int OwnerId { get; set; }

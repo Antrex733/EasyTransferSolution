@@ -17,6 +17,12 @@ namespace EasyTransfer.Api.Middleware
                 context.Response.StatusCode = 400;
                 await context.Response.WriteAsync(badRequestException.Message);
             }
+            catch (AllreadyExistsException allreadyExistsException)
+            {
+
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync(allreadyExistsException.Message);
+            }
             catch (Exception e)
 			{
 				context.Response.StatusCode = 500;
