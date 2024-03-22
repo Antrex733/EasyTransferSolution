@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace EasyTransfer.Api.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
     public class BankAccountController: ControllerBase
     {
         private readonly IBankAccountService _bankAccount;
@@ -16,8 +17,8 @@ namespace EasyTransfer.Api.Controllers
             _userContextService = userContextService;
         }
 
-        [HttpPost]
-        [ProducesResponseType(204)]
+        [HttpPost("AddAccount")]
+        [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public IActionResult AddBankAcccount([FromBody]BankAccountDto bankAccount) 
         {

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace EasyTransfer.Api.Controllers
 {
@@ -60,6 +59,7 @@ namespace EasyTransfer.Api.Controllers
 
             return Ok(token);
         }
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
