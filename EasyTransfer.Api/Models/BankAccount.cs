@@ -1,4 +1,6 @@
-﻿namespace EasyTransfer.Api.Models
+﻿using System.Text.Json.Serialization;
+
+namespace EasyTransfer.Api.Models
 {
     public class BankAccount
     {
@@ -6,6 +8,7 @@
         public string Name { get; set; }
         public string AccountNumber { get; set; }
         public decimal Balance { get; set; } = 0;
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public Currency Currency { get; set; } = Currency.PLN;
 
 
