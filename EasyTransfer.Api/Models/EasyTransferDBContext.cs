@@ -10,6 +10,10 @@
         public DbSet<BankAccount> BankAccounts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BankAccount>()
+                .Property(b => b.Currency)
+                .HasConversion<string>(); // Mapuj wartość enum na tekst
+
             modelBuilder.Entity<User>()
                 .HasMany(a => a.BankAccounts)
                 .WithOne(o => o.Owner)
