@@ -35,5 +35,19 @@ namespace EasyTransfer.Api.Controllers
 
             return Created();
         }
+        [HttpPut("MakeBankTransfer")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult MakeBankTransfer([FromBody] BankTransferDto bankTransferDto)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userId = _userContextService.GetUserId;
+            _bankAccount.MakeBankTransfer(userId, bankTransferDto);
+
+            return Ok();
+        }
     }
 }
