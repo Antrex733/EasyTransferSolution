@@ -12,7 +12,7 @@
         {
             modelBuilder.Entity<BankAccount>()
                 .Property(b => b.Currency)
-                .HasConversion<string>(); // Mapuj wartość enum na tekst
+                .HasConversion<string>(); 
 
             modelBuilder.Entity<User>()
                 .HasMany(a => a.BankAccounts)
