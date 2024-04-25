@@ -11,14 +11,11 @@ namespace EasyTransfer.Api.Services
     public class BlikService : IBlikService
     {
         private readonly EasyTransferDBContext _context;
-        private readonly IUserContextService _userContext;
         private readonly IMemoryCache _memoryCache;
 
-        public BlikService(EasyTransferDBContext context, IUserContextService userContext,
-            IMemoryCache memoryCache)
+        public BlikService(EasyTransferDBContext context, IMemoryCache memoryCache)
         {
             _context = context;
-            _userContext = userContext;
             _memoryCache = memoryCache;
         }
         public async Task StartConnection(WebSocket webSocket, int? userId)
