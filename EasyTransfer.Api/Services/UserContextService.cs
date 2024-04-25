@@ -6,6 +6,7 @@ namespace EasyTransfer.Api.Services
     {
         int? GetUserId { get; }
         ClaimsPrincipal User { get; }
+        string? UserName { get; }
     }
     public class UserContextService : IUserContextService
     {
@@ -19,5 +20,8 @@ namespace EasyTransfer.Api.Services
         public ClaimsPrincipal User => _httpContextAccessor.HttpContext?.User;
         public int? GetUserId => 
             User == null ? null : (int?)int.Parse(User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier).Value);
+
+        public string? UserName => 
+            User == null ? null : User.FindFirst(c => c.Type == ClaimTypes.Name).ToString();
     }
 }

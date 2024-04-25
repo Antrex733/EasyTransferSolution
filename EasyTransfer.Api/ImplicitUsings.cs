@@ -14,3 +14,4 @@ global using FluentValidation.AspNetCore;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
 global using EasyTransfer.Api.Exceptions;
+global using System.Net.WebSockets;

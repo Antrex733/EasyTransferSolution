@@ -14,5 +14,6 @@ namespace EasyTransfer.Api.Models
         public string PhoneNumber { get; set; }
 
         public virtual List<BankAccount> BankAccounts { get; set; }
+        public virtual List<Blik> Bliks { get; set; }
     }
 }

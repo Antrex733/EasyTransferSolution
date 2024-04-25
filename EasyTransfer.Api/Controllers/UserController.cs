@@ -22,7 +22,7 @@ namespace EasyTransfer.Api.Controllers
         }
 
         [HttpPost("register")]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public IActionResult RegisterUser([FromBody] RegisterUserDto dto) 
         {
@@ -44,8 +44,8 @@ namespace EasyTransfer.Api.Controllers
 
             return Ok(token);
         }
-        [HttpPost("login")]
-        [ProducesResponseType(200)]
+        [HttpGet("login")]
+        [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public IActionResult LoginUser([FromBody] LoginUserDto dto)
         {
@@ -62,7 +62,7 @@ namespace EasyTransfer.Api.Controllers
         [Authorize]
         [HttpGet]
         [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public IActionResult GetUser()
         {
             var userId = _userContextService.GetUserId; 

@@ -23,7 +23,13 @@ namespace EasyTransfer.Api.Middleware
                 context.Response.StatusCode = 400;
                 await context.Response.WriteAsync(allreadyExistsException.Message);
             }
-            catch (Exception e)
+            catch (ManyBlikException manyBlikException)
+            {
+
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync(manyBlikException.Message);
+            }
+            catch (Exception)
 			{
 				context.Response.StatusCode = 500;
 				await context.Response.WriteAsync("Something went wrong");
